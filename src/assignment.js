@@ -1,9 +1,6 @@
 /**
  * Challenge - 1
  *
- * Calculate and return the sum of the numbers between 1 and a destination.
- * (1 to destination) where destination is a number greater than 1 and destination is included when calculating the sum.
- *
  *
  * @param {number} destination is the stopping number
  * @returns number the sum of the numbers from 1 to destination
@@ -12,7 +9,7 @@ export function sumOfNumbersTo(destination) {
     console.log(destination)
     let sum = 0
 
-    // Use a for loop to iterate from 1 up to the destination number (inclusive).
+    // Use a for loop to iterate from 1 up to the destination number.
     for (let i = 1; i <= destination; i++) {
         // Add the current number (i) to the sum.
         sum += i
@@ -25,7 +22,6 @@ export function sumOfNumbersTo(destination) {
 /**
  * Challenge - 2
  *
- * Calculate count, sum and put each even number in an array, from 0 to a destination. The returned object should have the following keys: count, sum, arrayOfEvenNumbers.
  *
  * @param {number} destination the stopping number
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
@@ -57,10 +53,7 @@ export function evenNumbersWithin(destination) {
  * Given an array of numbers representing temperatures in Celsius,
  * convert each number to Fahrenheit and return a new array containing the converted
  * temperatures in Fahrenheit. Decimal figures in the converted values in Fahrenheit should be removed.
- * E.g 51.21 should just be 51 (hint: Math.trunc(...) function)
- *
- * See https://www.thoughtco.com/celcius-to-farenheit-formula-609227 for the conversion formula
- *
+ * 
  * @param {Array} arrayOfNumbers the array containing temperatures in Celsius to be converted
  * @returns Array the converted temperatures in Fahrenheit
  */
@@ -154,9 +147,7 @@ export function findMultiples(arrayOfNumbers, factor) {
  * Challenge - 6
  *
  * Given an array of numbers, calculate the factorial of each number and return a new array.
- * The factorial of a number n is the product of all positive integers less than or equal to n.
- * For example: 5! = 5 × 4 × 3 × 2 × 1 = 120
- * Note: 0! = 1 and negative numbers should return 0.
+ * 
  *
  * @param {Array} arrayOfNumbers the array of numbers to calculate factorials for
  * @returns {Array} the array of factorial results
@@ -164,7 +155,7 @@ export function findMultiples(arrayOfNumbers, factor) {
 export function calculateFactorials(arrayOfNumbers) {
     console.log(arrayOfNumbers)
 
-    // A helper function to compute the factorial of a single number.
+    // A helpe function to compute the factorial of a single number.
     function factorial(n) {
         // Handle the base cases: 0! = 1 and any negative number should return 0.
         if (n < 0) {
@@ -192,8 +183,7 @@ export function calculateFactorials(arrayOfNumbers) {
  *
  * Given an array of numbers, find all prime numbers and return an object containing
  * the count of primes, their sum, and an array of the prime numbers found.
- * A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
- *
+ * 
  * @param {Array} arrayOfNumbers the array of numbers to check for primes
  * @returns {object} the count, sum, and arrayOfPrimes
  */
