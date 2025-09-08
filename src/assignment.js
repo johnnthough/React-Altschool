@@ -1,7 +1,3 @@
-// ========================
-// DO NOT REMOVE THE EXPORT KEYWORDS
-// ========================
-
 /**
  * Challenge - 1
  *
@@ -14,8 +10,16 @@
  */
 export function sumOfNumbersTo(destination) {
     console.log(destination)
-    // write your code here
-    return 0
+    let sum = 0
+
+    // Use a for loop to iterate from 1 up to the destination number (inclusive).
+    for (let i = 1; i <= destination; i++) {
+        // Add the current number (i) to the sum.
+        sum += i
+    }
+
+    // Return the final sum.
+    return sum
 }
 
 /**
@@ -29,12 +33,17 @@ export function sumOfNumbersTo(destination) {
 export function evenNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfEvenNumbers = []
 
-    // write your code here
-
+    for (let i = 0; i <= destination; i++) {
+        if (i % 2 === 0) {
+            count++
+            sum += i
+            arrayOfEvenNumbers.push(i)
+        }
+    }
     return {
         count,
         sum,
@@ -57,11 +66,16 @@ export function evenNumbersWithin(destination) {
  */
 export function celsiusToFahrenheit(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const result = []
 
-    // write your code here
+    // Use the `map` method to iterate through each number in the array.
+    // The map() method creates a new array by calling a provided function on every element in the calling array.
+    return arrayOfNumbers.map((celsius) => {
+        // First, apply the conversion formula: Fahrenheit = (Celsius * 9/5) + 32
+        const fahrenheit = (celsius * 9 / 5) + 32
 
-    return result
+        // Next, use Math.trunc() to remove the decimal part of the Fahrenheit value.
+        return Math.trunc(fahrenheit)
+    })
 }
 
 /**
@@ -76,12 +90,23 @@ export function celsiusToFahrenheit(arrayOfNumbers) {
 export function oddNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfOddNumbers = []
 
-    // write your code here
-
+    // Use a for loop to iterate from 0 up to and including the destination number.
+    for (let i = 0; i <= destination; i++) {
+        // Check if the current number 'i' is odd by using the modulo operator.
+        // An odd number divided by 2 will always have a remainder.
+        if (i % 2 !== 0) {
+            // If the number is odd, add it to the sum.
+            sum += i
+            // Increment the count of odd numbers.
+            count++
+            // Push the odd number into the array.
+            arrayOfOddNumbers.push(i)
+        }
+    }
     return {
         count,
         sum,
@@ -101,12 +126,23 @@ export function oddNumbersWithin(destination) {
  */
 export function findMultiples(arrayOfNumbers, factor) {
     console.log(arrayOfNumbers, factor)
-    const sum = 0
-    const count = 0
+    let sum = 0
+    let count = 0
     const arrayOfMultiples = []
 
-    // write your code here
-
+    // Iterate through each number in the input array.
+    arrayOfNumbers.forEach((number) => {
+        // Use the modulo operator to check if the number is a multiple of the factor.
+        // A number is a multiple if the remainder is 0 when divided by the factor.
+        if (number % factor === 0) {
+            // If it's a multiple, increment the count.
+            count++
+            // Add the number to the sum.
+            sum += number
+            // Push the multiple into the array.
+            arrayOfMultiples.push(number)
+        }
+    })
     return {
         count,
         sum,
@@ -127,11 +163,28 @@ export function findMultiples(arrayOfNumbers, factor) {
  */
 export function calculateFactorials(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const result = []
 
-    // write your code here
+    // A helper function to compute the factorial of a single number.
+    function factorial(n) {
+        // Handle the base cases: 0! = 1 and any negative number should return 0.
+        if (n < 0) {
+            return 0
+        }
+        if (n === 0) {
+            return 1
+        }
 
-    return result
+        // Calculate the factorial by multiplying all integers from 1 up to n.
+        let result = 1
+        for (let i = 1; i <= n; i++) {
+            result *= i
+        }
+        return result
+    }
+
+    // Use the map() method to apply the factorial function to each number
+    // in the input array, creating a new array of the results.
+    return arrayOfNumbers.map(number => factorial(number))
 }
 
 /**
@@ -146,12 +199,43 @@ export function calculateFactorials(arrayOfNumbers) {
  */
 export function findPrimeNumbers(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const sum = 0
-    const count = 0
+
+    // A helper function to check if a number is prime.
+    // This is more efficient than checking all the way up to the number itself.
+    function isPrime(num) {
+        // Prime numbers must be greater than 1.
+        if (num <= 1) {
+            return false
+        }
+
+        // Check for divisibility from 2 up to the square root of the number.
+        // If a number has a divisor greater than its square root, it must also have one
+        // that is less than or equal to its square root.
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                // If it's divisible by any number other than 1 and itself, it's not prime.
+                return false
+            }
+        }
+        // If the loop completes without finding any divisors, the number is prime.
+        return true
+    }
+
+    // Initialize the variables to store the results.
+    let sum = 0
+    let count = 0
     const arrayOfPrimes = []
 
-    // write your code here
-
+    // Iterate through each number in the input array.
+    for (const number of arrayOfNumbers) {
+        // Use the helper function to check if the current number is prime.
+        if (isPrime(number)) {
+            // If it is, update the count, sum, and add it to the array.
+            count++
+            sum += number
+            arrayOfPrimes.push(number)
+        }
+    }
     return {
         count,
         sum,
@@ -169,11 +253,11 @@ export function findPrimeNumbers(arrayOfNumbers) {
  */
 export function doubleTheValues(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const result = []
-
-    // write your code here
-
-    return result
+    // The map() method creates a new array by applying a function
+    // to each element of the original array.
+    return arrayOfNumbers.map((number) => {
+        return number * 2
+    })
 }
 
 // ========================
